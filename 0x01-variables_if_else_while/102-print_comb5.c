@@ -1,21 +1,32 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers between 0 to 9 and letters between a to f.
- *
+ * main - prints all possible combinations of two two-digit numbers
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i;
+	int i, j;
 
-	for (i = 48; i < 58; i++)
+	for (i = 0; i < 100; i++)
 	{
-		putchar(i);
-	}
-	for (i = 97; i < 103; i++)
-	{
-		putchar(i);
+		for (j = 0; j < 100; j++)
+		{
+			if (i < j)
+			{
+				putchar((i / 10) + 48);
+				putchar((i % 10) + 48);
+				putchar(' ');
+				putchar((j / 10) + 48);
+				putchar((j % 10) + 48);
+				if (i != 98 || j != 99)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+
+		}
 	}
 	putchar('\n');
 	return (0);
